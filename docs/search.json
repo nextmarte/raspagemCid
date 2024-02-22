@@ -53,7 +53,7 @@
     "href": "index.html#requisitos-para-raspar-dados-de-um-site-html-parsing",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Requisitos para raspar dados de um site (html parsing)",
-    "text": "Requisitos para raspar dados de um site (html parsing)\nConhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar), tags e atributos.\nExemplo de trecho de código html que pode ser raspado:\n\n&lt;div class=\"card\"&gt;\n    &lt;div class=\"card-body\"&gt;\n        &lt;h5 class=\"card-title\"&gt;Lagoa Viva&lt;/h5&gt;\n        &lt;p class=\"card-text\"&gt;A Plataforma Educacional Lagoa Viva possui uma grande inovação para a população de Maricá: o sistema de avaliação e identificação de perfis comportamentais. Vamos entender como isso funciona?&lt;/p&gt;\n    &lt;/div&gt;\n&lt;/div&gt;\nPara coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag h5 e o parágrafo dentro de uma tag p.\nCódigo em Python para coletar esses dados:\nfrom bs4 import BeautifulSoup\n\nhtml = \"html do card\"\n\nsoup = BeautifulSoup(html, 'html.parser')\n\ntitle = soup.find('h5', class_='card-title').text\ntext = soup.find('p', class_='card-text\n\nprint(title)\n\nprint(text)"
+    "text": "Requisitos para raspar dados de um site (html parsing)\nConhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar), tags e atributos.\n\n\nExemplo\n\n\n&lt;div class=\"card\"&gt;\n    &lt;div class=\"card-body\"&gt;\n        &lt;h5 class=\"card-title\"&gt;Lagoa Viva&lt;/h5&gt;\n        &lt;p class=\"card-text\"&gt;A Plataforma Educacional Lagoa Viva possui uma grande inovação para a população de Maricá: o sistema de avaliação e identificação de perfis comportamentais. Vamos entender como isso funciona?&lt;/p&gt;\n    &lt;/div&gt;\n&lt;/div&gt;\n\nPara coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag h5 e o parágrafo dentro de uma tag p.\n\n\nCódigo em Python para coletar esses dados:\n\nfrom bs4 import BeautifulSoup\n\nhtml = \"html do card\"\n\nsoup = BeautifulSoup(html, 'html.parser')\n\ntitle = soup.find('h5', class_='card-title').text\ntext = soup.find('p', class_='card-text\n\nprint(title)\n\nprint(text)"
   },
   {
     "objectID": "index.html#outros-métodos-de-coleta-de-dados",
@@ -95,7 +95,7 @@
     "href": "index.html#métodos-dom-parsing-document-object-model",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Métodos: DOM parsing (Document Object Model)",
-    "text": "Métodos: DOM parsing (Document Object Model)\n\n\n\n\n\n\ngraph TB\n    A[html]\n    B[head]\n    C[body]\n    D[h1]\n    E[p]\n    A --&gt; B\n    A --&gt; C\n    C --&gt; D\n    C --&gt; E\n\n\n\n\n\n\n\nInterface (API) usada para organizar os diferentes tipos de elementos em um documento HTML ou XML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos (Lotfi et al., 2021). Exemplo de site para visualizar arvores DOM: https://livedom.validator.nu/"
+    "text": "Métodos: DOM parsing (Document Object Model)\n\n\n\n\n\n\ngraph TB\n    A{html}\n    B[head]\n    C[body]\n    D[h1]\n    E[p]\n    A --&gt; B\n    A --&gt; C\n    C --&gt; D\n    C --&gt; E\n\n\n\n\n\n\n\nInterface (API) usada para organizar os diferentes tipos de elementos em um documento HTML ou XML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos (Lotfi et al., 2021). Exemplo de site para visualizar arvores DOM: https://livedom.validator.nu/"
   },
   {
     "objectID": "index.html#métodos-regular-expression-regex-vs-llms-language-models",
@@ -109,6 +109,20 @@
     "href": "index.html#outros-métodos",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Outros métodos",
-    "text": "Outros métodos\n\nXPath (XML Path Language)\nVertical Aggregation Platforms (VAP)"
+    "text": "Outros métodos\n\nXPath (XML Path Language)\nVertical Aggregation Platforms (VAP)\nSemantic annotation recognizing\nComputer Vision Web Page Analyzer"
+  },
+  {
+    "objectID": "index.html#métodos-regular-expression-regex-e-llms-large-language-models",
+    "href": "index.html#métodos-regular-expression-regex-e-llms-large-language-models",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Métodos: Regular Expression (Regex) e LLM’s (Large Language Models)",
+    "text": "Métodos: Regular Expression (Regex) e LLM’s (Large Language Models)\nRegular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo: regex: r'\\d+' encontra todas as sequências de números em uma string.\n\n\n\nModelos de linguagem aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc… Uma aplicação de LLM’s é a extração de informações de textos, como entidades nomeadas, relações ou estruturas de páginas web."
+  },
+  {
+    "objectID": "index.html#aplicações-de-web-scraping-com-python-e-r",
+    "href": "index.html#aplicações-de-web-scraping-com-python-e-r",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Aplicações de web scraping com Python e R",
+    "text": "Aplicações de web scraping com Python e R"
   }
 ]

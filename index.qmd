@@ -8,6 +8,7 @@ logo: "https://lagoaviva.net/pluginfile.php/1/theme_mb2nl/logo/1707142444/logo-l
 toc: false
 bibliography: references.bib
 csl: apa.csl
+incremental: true
 ---
 
 ## O que é web scraping?
@@ -24,7 +25,12 @@ csl: apa.csl
 
 Conhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar), tags e atributos.
 
-Exemplo de trecho de código html que pode ser raspado:
+
+
+<details>
+
+<summary>Exemplo</summary>
+
 
 ``` html
 
@@ -36,9 +42,14 @@ Exemplo de trecho de código html que pode ser raspado:
 </div>
 ```
 
+</details>
+
 Para coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag `h5` e o parágrafo dentro de uma tag `p`.
 
-Código em Python para coletar esses dados:
+
+<details>
+
+<summary>Código em Python para coletar esses dados:</summary>
 
 ``` python
 from bs4 import BeautifulSoup
@@ -55,13 +66,15 @@ print(title)
 print(text)
 ```
 
+</details>
+
 ## Métodos: DOM parsing (Document Object Model)
 
 <center>
 
 ```{mermaid}
 graph TB
-    A[html]
+    A{html}
     B[head]
     C[body]
     D[h1]
@@ -76,7 +89,7 @@ graph TB
 
 Interface (API) usada para organizar os diferentes tipos de elementos em um documento HTML ou XML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos [@lotfi2021]. Exemplo de site para visualizar arvores DOM: <https://livedom.validator.nu/>
 
-## Métodos: Regular Expression (Regex) vs LLM's (Language Models)
+## Métodos: Regular Expression (Regex) e LLM's (Large Language Models)
 
 Regular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo: regex: `r'\d+'` encontra todas as sequências de números em uma string.
 
@@ -85,11 +98,16 @@ Regular expressions são padrões utilizados para encontrar determinadas combina
 ![](images/paste-6.png)
 
 </center>
-Modelos de linguagem que aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc... Uma aplicação de LLM's é a extração de informações de textos, como entidades nomeadas, relações, etc,
+
+Modelos de linguagem aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc... Uma aplicação de LLM's é a extração de informações de textos, como entidades nomeadas, relações ou estruturas de páginas web.
 
 ## Outros métodos
 
 - XPath (XML Path Language)
 - Vertical Aggregation Platforms (VAP)
+- Semantic annotation recognizing
+- Computer Vision Web Page Analyzer
+
+## Aplicações de web scraping com Python e R
 
 ## Referências

@@ -14,8 +14,13 @@ figcaption {
     text-align: center !important;
 }
 
+summary,
 p,
 .sourceCode {
     font-size: 20px;
 }
 
+.reveal .slide-logo {
+    max-width: 15% !important;
+    max-height: 7% !important;
+}
