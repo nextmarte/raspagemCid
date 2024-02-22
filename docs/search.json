@@ -11,7 +11,7 @@
     "href": "index.html#o-que-é-web-scraping",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "O que é web scraping?",
-    "text": "O que é web scraping?\n\n\n\n\n\n\ngraph LR\n    A{Internet}\n    B(software/código)\n    C[database]\n    D[csv]\n    E[json]\n    F[xlsx]\n    G[xml]\n    A --&gt; B\n    B --&gt; C\n    B --&gt; D\n    B --&gt; E\n    B --&gt; F\n    B --&gt; G"
+    "text": "O que é web scraping?\n\n\n\n\n\n\ngraph LR\n    A{Internet}\n    B(software)\n    C[database]\n    D[csv]\n    E[json]\n    F[xlsx]\n    G[xml]\n    H[html]\n    A --&gt; B\n    B --&gt; D\n    B --&gt; E\n    B --&gt; F\n    B --&gt; G\n    B --&gt; H\n    D --&gt; C\n    E --&gt; C\n    F --&gt; C\n    G --&gt; C\n    H --&gt; C"
   },
   {
     "objectID": "index.html#referências",
@@ -130,6 +130,6 @@
     "href": "index.html#apis",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "API`s",
-    "text": "API`s\n\nSegurança e confiabilidade\nFacilidade de uso\nDocumentação\nLimites de requisições\nAutenticação\nPacotes Python: requests(Faz requisições HTTP e HTTPS. ) e asyncio(Permite requisições assíncronas.)\nPacotes R equivalentes: httr e async"
+    "text": "API`s\n\nSegurança e confiabilidade\nFacilidade de uso\nDocumentação\nLimites de requisições e preços\nAutenticação\nPacotes Python: requests(Faz requisições HTTP e HTTPS. ) e asyncio(Permite requisições assíncronas.)\nPacotes R equivalentes: httr e async"
   }
 ]

@@ -439,18 +439,24 @@ Marcus Ramalho e Ariel Levy
 <div>
 <pre class="mermaid mermaid-js">graph LR
     A{Internet}
-    B(software/código)
+    B(software)
     C[database]
     D[csv]
     E[json]
     F[xlsx]
     G[xml]
+    H[html]
     A --&gt; B
-    B --&gt; C
     B --&gt; D
     B --&gt; E
     B --&gt; F
     B --&gt; G
+    B --&gt; H
+    D --&gt; C
+    E --&gt; C
+    F --&gt; C
+    G --&gt; C
+    H --&gt; C
 
 </pre>
 </div>
@@ -590,7 +596,7 @@ Código em Python para coletar esses dados:
 <li class="fragment">Segurança e confiabilidade</li>
 <li class="fragment">Facilidade de uso</li>
 <li class="fragment">Documentação</li>
-<li class="fragment">Limites de requisições</li>
+<li class="fragment">Limites de requisições e preços</li>
 <li class="fragment">Autenticação</li>
 <li class="fragment">Pacotes Python: <code>requests</code>(Faz requisições HTTP e HTTPS. ) e <code>asyncio</code>(Permite requisições assíncronas.)</li>
 <li class="fragment">Pacotes R equivalentes: <code>httr</code> e <code>async</code></li>

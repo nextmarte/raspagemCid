@@ -17,18 +17,27 @@ incremental: true
 ```{mermaid}
 graph LR
     A{Internet}
-    B(software/código)
+    B(software)
     C[database]
     D[csv]
     E[json]
     F[xlsx]
     G[xml]
+    H[html]
     A --> B
-    B --> C
     B --> D
     B --> E
     B --> F
     B --> G
+    B --> H
+    D --> C
+    E --> C
+    F --> C
+    G --> C
+    H --> C
+
+
+
 
 ```
 
