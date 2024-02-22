@@ -467,8 +467,6 @@ Marcus Ramalho e Ariel Levy
 </div>
 </div>
 </center>
-<!-- 
-![Fonte: [@webharvyWhatWebScraping]](images/paste-3.png){fig-align="center"} -->
 </section>
 <section id="design-básico-de-um-web-scraper" class="slide level2">
 <h2>Design básico de um web scraper</h2>
@@ -483,52 +481,6 @@ Marcus Ramalho e Ariel Levy
 <p><img data-src="images/paste-2.png" class="quarto-figure quarto-figure-center" width="493"></p>
 </figure>
 </div>
-</section>
-<section id="requisitos-para-raspar-dados-de-um-site-html-parsing" class="slide level2">
-<h2>Requisitos para raspar dados de um site (html parsing)</h2>
-<p>Conhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar), tags e atributos.</p>
-<details>
-<summary>
-Exemplo
-</summary>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card"</span><span class="dt">&gt;</span></span>
-<span id="cb1-2"><a></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-body"</span><span class="dt">&gt;</span></span>
-<span id="cb1-3"><a></a>        <span class="dt">&lt;</span><span class="kw">h5</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-title"</span><span class="dt">&gt;</span>Lagoa Viva<span class="dt">&lt;/</span><span class="kw">h5</span><span class="dt">&gt;</span></span>
-<span id="cb1-4"><a></a>        <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-text"</span><span class="dt">&gt;</span>A Plataforma Educacional Lagoa Viva possui uma grande inovação para a população de Maricá: o sistema de avaliação e identificação de perfis comportamentais. Vamos entender como isso funciona?<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-5"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-6"><a></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<p>Para coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag <code>h5</code> e o parágrafo dentro de uma tag <code>p</code>.</p>
-<details>
-<summary>
-Código em R para coletar esses dados:
-</summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1|2|3|4|5|6|7|8|9|10|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(rvest)</span>
-<span id="cb2-2"><a></a>html <span class="ot">&lt;-</span> <span class="st">"html do card"</span></span>
-<span id="cb2-3"><a></a>webpage <span class="ot">&lt;-</span> <span class="fu">read_html</span>(html)</span>
-<span id="cb2-4"><a></a>title <span class="ot">&lt;-</span> webpage <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a></a>    <span class="fu">html_node</span>(<span class="st">"h5.card-title"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a></a>    <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-7"><a></a>text <span class="ot">&lt;-</span> webpage <span class="sc">%&gt;%</span></span>
-<span id="cb2-8"><a></a>    <span class="fu">html_node</span>(<span class="st">"p.card-text"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-9"><a></a>    <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-10"><a></a><span class="fu">print</span>(title)</span>
-<span id="cb2-11"><a></a><span class="fu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</details>
-<details>
-<summary>
-Código em Python para coletar esses dados:
-</summary>
-<div class="sourceCode" id="cb3" data-code-line-numbers="1|2|3|4|5|6|7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
-<span id="cb3-2"><a></a>html <span class="op">=</span> <span class="st">"html do card"</span></span>
-<span id="cb3-3"><a></a>soup <span class="op">=</span> BeautifulSoup(html, <span class="st">'html.parser'</span>)</span>
-<span id="cb3-4"><a></a>title <span class="op">=</span> soup.find(<span class="st">'h5'</span>, class_<span class="op">=</span><span class="st">'card-title'</span>).text</span>
-<span id="cb3-5"><a></a>text <span class="op">=</span> soup.find(<span class="st">'p'</span>, class_<span class="op">=</span><span class="st">'card-text'</span>).text</span>
-<span id="cb3-6"><a></a><span class="bu">print</span>(title)</span>
-<span id="cb3-7"><a></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </section>
 <section id="métodos-dom-parsing-document-object-model" class="slide level2">
 <h2>Métodos: DOM parsing (Document Object Model)</h2>
@@ -574,6 +526,48 @@ Código em Python para coletar esses dados:
 </div>
 </center>
 <p>Organiza o documento em uma estrutura de árvore - DOM: <a href="https://livedom.validator.nu/" class="uri">https://livedom.validator.nu/</a></p>
+</section>
+<section id="requisitos-para-raspar-dados-de-um-site-html-parsing" class="slide level2">
+<h2>Requisitos para raspar dados de um site (html parsing)</h2>
+<p>Conhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar), tags e atributos.</p>
+<details>
+<summary>
+Exemplo
+</summary>
+<div class="sourceCode" id="cb1" data-code-line-numbers="1|2|3|4"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card"</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-body"</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a></a>        <span class="dt">&lt;</span><span class="kw">h5</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-title"</span><span class="dt">&gt;</span>Lagoa Viva<span class="dt">&lt;/</span><span class="kw">h5</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a></a>        <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-text"</span><span class="dt">&gt;</span>A Plataforma Educacional Lagoa Viva possui uma grande inovação para a população de Maricá: o sistema de avaliação e identificação de perfis comportamentais. Vamos entender como isso funciona?<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Para coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag <code>h5</code> e o parágrafo dentro de uma tag <code>p</code>.</p>
+<details>
+<summary>
+Código em R para coletar esses dados:
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1|2|3|4|5|6|7|8|9|10|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(rvest)</span>
+<span id="cb2-2"><a></a>html <span class="ot">&lt;-</span> <span class="st">"html do card"</span></span>
+<span id="cb2-3"><a></a>webpage <span class="ot">&lt;-</span> <span class="fu">read_html</span>(html)</span>
+<span id="cb2-4"><a></a>title <span class="ot">&lt;-</span> webpage <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a></a>    <span class="fu">html_node</span>(<span class="st">"h5.card-title"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a></a>    <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-7"><a></a>text <span class="ot">&lt;-</span> webpage <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a></a>    <span class="fu">html_node</span>(<span class="st">"p.card-text"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a></a>    <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<details>
+<summary>
+Código em Python para coletar esses dados:
+</summary>
+<div class="sourceCode" id="cb3" data-code-line-numbers="1|2|3|4|5|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb3-2"><a></a>html <span class="op">=</span> <span class="st">"html do card"</span></span>
+<span id="cb3-3"><a></a>soup <span class="op">=</span> BeautifulSoup(html, <span class="st">'html.parser'</span>)</span>
+<span id="cb3-4"><a></a>title <span class="op">=</span> soup.find(<span class="st">'h5'</span>, class_<span class="op">=</span><span class="st">'card-title'</span>).text</span>
+<span id="cb3-5"><a></a>text <span class="op">=</span> soup.find(<span class="st">'p'</span>, class_<span class="op">=</span><span class="st">'card-text'</span>).text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </section>
 <section id="métodos-regular-expression-regex-e-llms-large-language-models" class="slide level2">
 <h2>Métodos: Regular Expression (Regex) e LLM’s (Large Language Models)</h2>
