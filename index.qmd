@@ -15,15 +15,16 @@ incremental: true
 
 <center>
 ```{mermaid}
+
 graph LR
-    A{Internet}
-    B(software)
-    C[database]
-    D[csv]
-    E[json]
-    F[xlsx]
-    G[xml]
-    H[html]
+    A("fa:fa-globe")
+    B("fa:fa-laptop-code")
+    C["fa:fa-database"]
+    D["fa:fa-file-csv"]
+    E["fa:fa-code json"]
+    F["fa:fa-file-excel"]
+    G["fa:fa-code xml"]
+    H["fa:fa-code html"]
     A --> B
     B --> D
     B --> E
@@ -35,6 +36,7 @@ graph LR
     F --> C
     G --> C
     H --> C
+
 
 
 
