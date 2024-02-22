@@ -13,7 +13,30 @@ incremental: true
 
 ## O que é web scraping?
 
-![Fonte: [@webharvyWhatWebScraping]](images/paste-3.png){fig-align="center"}
+<center>
+```{mermaid}
+graph LR
+    A{Internet}
+    B(software/código)
+    C[database]
+    D[csv]
+    E[json]
+    F[xlsx]
+    G[xml]
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+    B --> F
+    B --> G
+
+```
+
+</center>
+
+
+<!-- 
+![Fonte: [@webharvyWhatWebScraping]](images/paste-3.png){fig-align="center"} -->
 
 ## Design básico de um web scraper
 
@@ -31,9 +54,7 @@ Conhecimento básico de HTML e CSS (para identificar os elementos que queremos c
 
 <summary>Exemplo</summary>
 
-
 ``` html
-
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">Lagoa Viva</h5>
@@ -46,27 +67,45 @@ Conhecimento básico de HTML e CSS (para identificar os elementos que queremos c
 
 Para coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag `h5` e o parágrafo dentro de uma tag `p`.
 
+<details>
+
+<summary>Código em R para coletar esses dados:</summary>
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1|2|3|4|5|6|7|8|9|10|11"
+library(rvest)
+html <- "html do card"
+webpage <- read_html(html)
+title <- webpage %>%
+    html_node("h5.card-title") %>%
+    html_text(trim = TRUE)
+text <- webpage %>%
+    html_node("p.card-text") %>%
+    html_text(trim = TRUE)
+print(title)
+print(text)
+```
+
+</details>
 
 <details>
 
 <summary>Código em Python para coletar esses dados:</summary>
 
-``` python
+```{.python code-line-numbers="1|3"}
 from bs4 import BeautifulSoup
-
 html = "html do card"
-
 soup = BeautifulSoup(html, 'html.parser')
-
 title = soup.find('h5', class_='card-title').text
-text = soup.find('p', class_='card-text
-
+text = soup.find('p', class_='card-text').text
 print(title)
-
 print(text)
 ```
 
 </details>
+
 
 ## Métodos: DOM parsing (Document Object Model)
 
@@ -74,20 +113,38 @@ print(text)
 
 ```{mermaid}
 graph TB
-    A{html}
-    B[head]
-    C[body]
-    D[h1]
-    E[p]
+    A[HTML]
+    B[HEAD]
+    C[BODY]
+    D[DIV class='card']
+    E[Text]
+    F[DIV class='card-body']
+    G[Text]
+    H[H5 class='card-title']
+    I[Text: Lagoa Viva]
+    J[Text]
+    K[P class='card-text']
+    L[Text: A Plataforma ...]
+    M[Text]
+    N[Text]
     A --> B
     A --> C
     C --> D
-    C --> E
+    D --> E
+    D --> F
+    F --> G
+    F --> H
+    H --> I
+    F --> J
+    F --> K
+    K --> L
+    K --> M
+    K --> N
 ```
 
 </center>
 
-Interface (API) usada para organizar os diferentes tipos de elementos em um documento HTML ou XML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos [@lotfi2021]. Exemplo de site para visualizar arvores DOM: <https://livedom.validator.nu/>
+Organiza o documento em uma estrutura de árvore - DOM: <https://livedom.validator.nu/>
 
 ## Métodos: Regular Expression (Regex) e LLM's (Large Language Models)
 
@@ -108,6 +165,19 @@ Modelos de linguagem aprendem a estrutura e padrões de uma língua natural. Exe
 - Semantic annotation recognizing
 - Computer Vision Web Page Analyzer
 
+## API`s
+
+- Segurança e confiabilidade
+- Facilidade de uso
+- Documentação
+- Limites de requisições
+- Autenticação
+- Pacotes Python: `requests`(Faz requisições HTTP e HTTPS. ) e `asyncio`(Permite requisições assíncronas.)
+- Pacotes R equivalentes: `httr` e `async`
+
+
 ## Aplicações de web scraping com Python e R
+
+
 
 ## Referências
