@@ -116,7 +116,7 @@
     "href": "index.html#métodos-regular-expression-regex-e-llms-large-language-models",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Métodos: Regular Expression (Regex) e LLM’s (Large Language Models)",
-    "text": "Métodos: Regular Expression (Regex) e LLM’s (Large Language Models)\nRegular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo: regex: r'\\d+' encontra todas as sequências de números em uma string.\n\n\n\nModelos de linguagem aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc… Uma aplicação de LLM’s é a extração de informações de textos, como entidades nomeadas, relações ou estruturas de páginas web."
+    "text": "Métodos: Regular Expression (Regex) e LLM’s (Large Language Models)\nRegular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo regex: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}$\n\n\n\nModelos de linguagem aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc… Uma aplicação de LLM’s é a extração de informações de textos, como entidades nomeadas, relações ou estruturas de páginas web."
   },
   {
     "objectID": "index.html#aplicações-de-web-scraping-com-python-e-r",

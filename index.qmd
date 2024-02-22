@@ -1,7 +1,7 @@
 ---
 title: "Como Raspar dados CID Lagoa Viva"
 subtitle: |
-        Técnicas e métodos para coleta de dados <br> revisão da literatura e estudo de caso
+        Técnicas e métodos para coleta de dados - Introdução ao web scraping
 author: "Marcus Ramalho e Ariel Levy"
 date: today
 logo: "https://lagoaviva.net/pluginfile.php/1/theme_mb2nl/logo/1707142444/logo-lagoa-viva-v3.png"
@@ -154,7 +154,7 @@ text = soup.find('p', class_='card-text').text
 
 ## Métodos: Regular Expression (Regex) e LLM's (Large Language Models)
 
-Regular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo: regex: `r'\d+'` encontra todas as sequências de números em uma string.
+Regular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo regex: `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$`
 
 <center>
 
@@ -162,7 +162,7 @@ Regular expressions são padrões utilizados para encontrar determinadas combina
 
 </center>
 
-Modelos de linguagem aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc... Uma aplicação de LLM's é a extração de informações de textos, como entidades nomeadas, relações ou estruturas de páginas web.
+Modelos de linguagem aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc... Uma aplicação de LLM's é a extração de informações de textos, como entidades nomeadas, relações ou estruturas de páginas web. 
 
 ## Outros métodos
 
