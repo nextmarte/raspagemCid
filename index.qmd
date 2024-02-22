@@ -22,7 +22,7 @@ csl: apa.csl
 
 ## Requisitos para raspar dados de um site (html parsing)
 
-Conhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar)
+Conhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar), tags e atributos.
 
 Exemplo de trecho de código html que pode ser raspado:
 
@@ -55,45 +55,7 @@ print(title)
 print(text)
 ```
 
-## Outros requisitos
-
-Tags HTML:
-
-``` html
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lagoa Viva</title>
-</head>
-<body>
-    <div id="header">
-        <h1>Lagoa Viva</h1>
-        <p>Bem-vindo ao site da Lagoa Viva.</p>
-    </div>
-    <div id="content">
-        <h2>Notícias</h2>
-        <p>Confira as últimas notícias sobre a Lagoa Viva.</p>
-        <a href="https://lagoaviva.net/noticias">Leia mais</a>
-    </div>
-    <div id="footer">
-        <img src="https://lagoaviva.net/logo.png" alt="Logo da Lagoa Viva">
-        <span>© 2024 Lagoa Viva</span>
-    </div>
-</body>
-</html>
-```
-
-##### Atributos: São usados para fornecer informações adicionais sobre elementos HTML.
-
-``` html
-
-class, id, src, href, etc.
-```
-
-## Outros métodos de coleta de dados:
-
-DOM parsing (Document Object Model):
+## Métodos: DOM parsing (Document Object Model)
 
 <center>
 
@@ -106,28 +68,25 @@ graph TB
     E[p]
     A --> B
     A --> C
-    B -.-> C
     C --> D
     C --> E
 ```
 
 </center>
 
-Interface (API) usada para organizar os diferentes tipos de elementos em um documento HTML ou XML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos [@lotfi2021]
+Interface (API) usada para organizar os diferentes tipos de elementos em um documento HTML ou XML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos [@lotfi2021]. Exemplo de site para visualizar arvores DOM: <https://livedom.validator.nu/>
 
-## Exemplo DOM parsing
+## Métodos: Regular Expression (Regex) vs LLM's (Language Models)
 
-``` {python}
-from bs4 import BeautifulSoup4
+Regular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo: regex: `r'\d+'` encontra todas as sequências de números em uma string.
 
-html = "https://www.geeksforgeeks.org/"
+![](images/paste-6.png)
 
-soup = BeautifulSoup(html, 'html.parser')
+Modelos de linguagem que aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc... Uma aplicação de LLM's é a extração de informações de textos, como entidades nomeadas, relações, etc,
 
-header = soup.find('div', id='header')
+## Outros métodos
 
-print(header.text)
-```
-
+- XPath (XML Path Language)
+- Vertical Aggregation Platforms (VAP)
 
 ## Referências

@@ -449,7 +449,7 @@ Marcus Ramalho e Ariel Levy
 </section>
 <section id="requisitos-para-raspar-dados-de-um-site-html-parsing" class="slide level2">
 <h2>Requisitos para raspar dados de um site (html parsing)</h2>
-<p>Conhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar)</p>
+<p>Conhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar), tags e atributos.</p>
 <p>Exemplo de trecho de código html que pode ser raspado:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a></a></span>
 <span id="cb1-2"><a></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card"</span><span class="dt">&gt;</span></span>
@@ -473,38 +473,8 @@ Marcus Ramalho e Ariel Levy
 <span id="cb2-11"><a></a></span>
 <span id="cb2-12"><a></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="outros-requisitos" class="slide level2">
-<h2>Outros requisitos</h2>
-<p>Tags HTML:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a></a></span>
-<span id="cb3-2"><a></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
-<span id="cb3-3"><a></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
-<span id="cb3-4"><a></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb3-5"><a></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Lagoa Viva<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb3-6"><a></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb3-7"><a></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb3-8"><a></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">"header"</span><span class="dt">&gt;</span></span>
-<span id="cb3-9"><a></a>        <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Lagoa Viva<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
-<span id="cb3-10"><a></a>        <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Bem-vindo ao site da Lagoa Viva.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb3-11"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb3-12"><a></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">"content"</span><span class="dt">&gt;</span></span>
-<span id="cb3-13"><a></a>        <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Notícias<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb3-14"><a></a>        <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Confira as últimas notícias sobre a Lagoa Viva.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb3-15"><a></a>        <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://lagoaviva.net/noticias"</span><span class="dt">&gt;</span>Leia mais<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb3-16"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb3-17"><a></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">"footer"</span><span class="dt">&gt;</span></span>
-<span id="cb3-18"><a></a>        <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://lagoaviva.net/logo.png"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Logo da Lagoa Viva"</span><span class="dt">&gt;</span></span>
-<span id="cb3-19"><a></a>        <span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>© 2024 Lagoa Viva<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb3-20"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb3-21"><a></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb3-22"><a></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h5 id="atributos-são-usados-para-fornecer-informações-adicionais-sobre-elementos-html.">Atributos: São usados para fornecer informações adicionais sobre elementos HTML.</h5>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a></a></span>
-<span id="cb4-2"><a></a>class, id, src, href, etc.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="outros-métodos-de-coleta-de-dados" class="slide level2">
-<h2>Outros métodos de coleta de dados:</h2>
-<p>DOM parsing (Document Object Model):</p>
+<section id="métodos-dom-parsing-document-object-model" class="slide level2">
+<h2>Métodos: DOM parsing (Document Object Model)</h2>
 <center>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
@@ -519,7 +489,6 @@ Marcus Ramalho e Ariel Levy
     E[p]
     A --&gt; B
     A --&gt; C
-    B -.-&gt; C
     C --&gt; D
     C --&gt; E
 </pre>
@@ -529,7 +498,16 @@ Marcus Ramalho e Ariel Levy
 </div>
 </div>
 </center>
-<p>Interface usada para organizar os diferentes tipos de elementos em um documento HTML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos <span class="citation" data-cites="lotfi2021">(<a href="#/referências" role="doc-biblioref" onclick="">Lotfi et al., 2021</a>)</span></p>
+<p>Interface (API) usada para organizar os diferentes tipos de elementos em um documento HTML ou XML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos <span class="citation" data-cites="lotfi2021">(<a href="#/referências" role="doc-biblioref" onclick="">Lotfi et al., 2021</a>)</span>. Exemplo de site para visualizar arvores DOM: <a href="https://livedom.validator.nu/" class="uri">https://livedom.validator.nu/</a></p>
+</section>
+<section id="métodos-regular-expression-regex-vs-llms-language-models" class="slide level2">
+<h2>Métodos: Regular Expression (Regex) vs LLM’s (Language Models)</h2>
+<p>Regular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo: regex: <code>r'\d+'</code> encontra todas as sequências de números em uma string.</p>
+
+<img data-src="images/paste-6.png" class="r-stretch"><p>Modelos de linguagem que aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc… Uma aplicação de LLM’s é a extração de informações de textos, como entidades nomeadas, relações, etc,</p>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
 </section>
 <section id="referências" class="slide level2 smaller scrollable">
 <h2>Referências</h2>
