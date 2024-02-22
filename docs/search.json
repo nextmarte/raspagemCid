@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "index.html#design-básico-de-um-web-scraper",
+    "href": "index.html#design-básico-de-um-web-scraper",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Design básico de um web scraper",
+    "text": "Design básico de um web scraper\n\n\n\nFonte: (Lotfi et al., 2021)"
+  },
+  {
+    "objectID": "index.html#o-que-é-web-scraping",
+    "href": "index.html#o-que-é-web-scraping",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "O que é web scraping?",
+    "text": "O que é web scraping?\n\nFonte: (webharvy, 2024)"
+  },
+  {
+    "objectID": "index.html#referências",
+    "href": "index.html#referências",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Referências",
+    "text": "Referências\n\n\n\n\n\n\n\n\n\nLotfi, C., Srinivasan, S., Ertz, M., & Latrous, I. (2021). Web scraping techniques and applications: A literature review (pp. 381–394). Soft Computing Research Society. https://doi.org/10.52458/978-93-91842-08-6-38\n\n\nwebharvy. (2024). What is Web Scraping?  Practical Uses & Methods. https://www.webharvy.com/articles/what-is-web-scraping.html."
+  },
+  {
+    "objectID": "index.html#requisitos-para-web-scraping",
+    "href": "index.html#requisitos-para-web-scraping",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Requisitos para web scraping",
+    "text": "Requisitos para web scraping\nConhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar)\nExemplo de trecho de código html que pode ser raspado:\n\n&lt;div class=\"card\"&gt;\n    &lt;div class=\"card-body\"&gt;\n        &lt;h5 class=\"card-title\"&gt;Lagoa Viva&lt;/h5&gt;\n        &lt;p class=\"card-text\"&gt;A Plataforma Educacional Lagoa Viva possui uma grande inovação para a população de Maricá: o sistema de avaliação e identificação de perfis comportamentais. Vamos entender como isso funciona?&lt;/p&gt;\n    &lt;/div&gt;\n&lt;/div&gt;\nPara coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag h5 e o parágrafo dentro de uma tag p.\nExemplo simples de codigo em Python para coletar esses dados e salvar em uma variável:\nfrom bs4 import BeautifulSoup\n\nhtml = \"html do card\"\n\nsoup = BeautifulSoup(html, 'html.parser')\n\ntitle = soup.find('h5', class_='card-title').text\ntext = soup.find('p', class_='card-text\n\nprint(title)\n\nprint(text)"
+  },
+  {
+    "objectID": "index.html#outros-requisitos",
+    "href": "index.html#outros-requisitos",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Outros requisitos",
+    "text": "Outros requisitos\nTags HTML:\n\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n    &lt;title&gt;Lagoa Viva&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n    &lt;div id=\"header\"&gt;\n        &lt;h1&gt;Lagoa Viva&lt;/h1&gt;\n        &lt;p&gt;Bem-vindo ao site da Lagoa Viva.&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div id=\"content\"&gt;\n        &lt;h2&gt;Notícias&lt;/h2&gt;\n        &lt;p&gt;Confira as últimas notícias sobre a Lagoa Viva.&lt;/p&gt;\n        &lt;a href=\"https://lagoaviva.net/noticias\"&gt;Leia mais&lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div id=\"footer\"&gt;\n        &lt;img src=\"https://lagoaviva.net/logo.png\" alt=\"Logo da Lagoa Viva\"&gt;\n        &lt;span&gt;© 2024 Lagoa Viva&lt;/span&gt;\n    &lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nAtributos: São usados para fornecer informações adicionais sobre elementos HTML.\n\nclass, id, src, href, etc."
+  },
+  {
+    "objectID": "index.html#outros-requisitos-.font-size30",
+    "href": "index.html#outros-requisitos-.font-size30",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Outros requisitos {.font-size=30}",
+    "text": "Outros requisitos {.font-size=30}\nTags HTML: São a base de qualquer página da web.\nExemplos: div, span, a, img, p, h1 a h6, etc.\nAtributos: São usados para fornecer informações adicionais sobre elementos HTML.\nExemplos: class, id, src, href, etc."
+  },
+  {
+    "objectID": "index.html#outros-requisitos-style-font-size30",
+    "href": "index.html#outros-requisitos-style-font-size30",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Outros requisitos {style: font-size=30}",
+    "text": "Outros requisitos {style: font-size=30}\nTags HTML: São a base de qualquer página da web.\nExemplos: div, span, a, img, p, h1 a h6, etc.\nAtributos: São usados para fornecer informações adicionais sobre elementos HTML.\nExemplos: class, id, src, href, etc."
+  }
+]

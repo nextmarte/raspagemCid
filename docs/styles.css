@@ -1,0 +1,17 @@
+/* css styles */
+
+h2, h3 {
+    text-align: center !important;
+}
+
+figcaption {
+    text-align: center !important;
+}
+
+.caption {
+    text-align: center !important;
+}
+
+p, .sourceCode {
+    font-size: 20px;
+}

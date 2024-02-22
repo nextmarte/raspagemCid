@@ -1,0 +1,98 @@
+---
+title: "Como Raspar dados CID Lagoa Viva"
+subtitle: |
+        Técnicas e métodos para coleta de dados <br> revisão da literatura e estudo de caso
+author: "Marcus Ramalho e Ariel Levy"
+date: today
+logo: "https://lagoaviva.net/pluginfile.php/1/theme_mb2nl/logo/1707142444/logo-lagoa-viva-v3.png"
+toc: false
+bibliography: references.bib
+csl: apa.csl
+
+---
+
+## O que é web scraping?
+
+![Fonte: [@webharvyWhatWebScraping]](images/paste-3.png){fig-align="center"}
+
+## Design básico de um web scraper
+
+![Fonte: [@lotfi2021]](images/paste-1.png){fig-align="center" width="578"}
+
+![](images/paste-2.png){fig-align="center" width="493"}
+
+## Requisitos para web scraping
+
+Conhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar)
+
+Exemplo de trecho de código html que pode ser raspado:
+
+
+``` html
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Lagoa Viva</h5>
+        <p class="card-text">A Plataforma Educacional Lagoa Viva possui uma grande inovação para a população de Maricá: o sistema de avaliação e identificação de perfis comportamentais. Vamos entender como isso funciona?</p>
+    </div>
+</div>
+```
+
+
+Para coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag `h5` e o parágrafo dentro de uma tag `p`.
+
+Exemplo simples de codigo em Python para coletar esses dados e salvar em uma variável:
+
+``` python
+from bs4 import BeautifulSoup
+
+html = "html do card"
+
+soup = BeautifulSoup(html, 'html.parser')
+
+title = soup.find('h5', class_='card-title').text
+text = soup.find('p', class_='card-text
+
+print(title)
+
+print(text)
+```
+
+## Outros requisitos  
+
+Tags HTML: 
+
+``` html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lagoa Viva</title>
+</head>
+<body>
+    <div id="header">
+        <h1>Lagoa Viva</h1>
+        <p>Bem-vindo ao site da Lagoa Viva.</p>
+    </div>
+    <div id="content">
+        <h2>Notícias</h2>
+        <p>Confira as últimas notícias sobre a Lagoa Viva.</p>
+        <a href="https://lagoaviva.net/noticias">Leia mais</a>
+    </div>
+    <div id="footer">
+        <img src="https://lagoaviva.net/logo.png" alt="Logo da Lagoa Viva">
+        <span>© 2024 Lagoa Viva</span>
+    </div>
+</body>
+</html>
+
+```
+##### Atributos: São usados para fornecer informações adicionais sobre elementos HTML.
+
+``` html
+
+class, id, src, href, etc.
+
+```
+
+## Referências
