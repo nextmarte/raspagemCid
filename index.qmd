@@ -139,7 +139,7 @@ text <- webpage %>%
 
 <summary>Código em Python para coletar esses dados:</summary>
 
-```{.python code-line-numbers="1|2|3|4|5|"}
+```{.python code-line-numbers="1|3|4|"}
 from bs4 import BeautifulSoup
 html = "html do card"
 soup = BeautifulSoup(html, 'html.parser')
@@ -182,8 +182,22 @@ Modelos de linguagem aprendem a estrutura e padrões de uma língua natural. Exe
 - Pacotes R equivalentes: `httr` e `async`
 
 
-## Aplicações de web scraping com Python e R
+## Web Crawling
 
+- Coleta de dados de múltiplas páginas de um site
+- Torna o processo de coleta de dados mais eficiente 
+- Ferramentas: Scrapy, Selenium, Puppeteer, etc...
+- Possíveis problemas: bloqueio de IP, captchas, etc...
+
+## Pipeline de coleta de dados
+
+- Coleta de dados: web scraping, web crawling, API's, etc...
+- Limpeza (gargalo do processo) 
+  - Python: `pandas`, `re`
+  - R: `rvest`, `stringr`, `tidyverse`, 
+- Armazenamento
+- Para raspagens rápidas e simples: R 
+- Para raspagens mais complexas e crawlers: Python
 
 
 ## Referências

@@ -131,5 +131,19 @@
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "API`s",
     "text": "API`s\n\nSegurança e confiabilidade\nFacilidade de uso\nDocumentação\nLimites de requisições e preços\nAutenticação\nPacotes Python: requests(Faz requisições HTTP e HTTPS. ) e asyncio(Permite requisições assíncronas.)\nPacotes R equivalentes: httr e async"
+  },
+  {
+    "objectID": "index.html#web-crawling",
+    "href": "index.html#web-crawling",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Web Crawling",
+    "text": "Web Crawling\n\nColeta de dados de múltiplas páginas de um site\nTorna o processo de coleta de dados mais eficiente\nFerramentas: Scrapy, Selenium, Puppeteer, etc…\nPossíveis problemas: bloqueio de IP, captchas, etc…"
+  },
+  {
+    "objectID": "index.html#pipeline-de-coleta-de-dados",
+    "href": "index.html#pipeline-de-coleta-de-dados",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Pipeline de coleta de dados",
+    "text": "Pipeline de coleta de dados\n\nColeta de dados: web scraping, web crawling, API’s, etc…\nLimpeza (gargalo do processo)\n\nPython: pandas, re\nR: rvest, stringr, tidyverse,\n\nArmazenamento\nPara raspagens rápidas e simples: R\nPara raspagens mais complexas e crawlers: Python"
   }
 ]
