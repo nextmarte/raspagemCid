@@ -170,7 +170,7 @@ Modelos de linguagem aprendem a estrutura e padrões de uma língua natural. Exe
 - Segurança e confiabilidade
 - Facilidade de uso
 - Documentação
-- Limites de requisições
+- Limites de requisições e preços
 - Autenticação
 - Pacotes Python: `requests`(Faz requisições HTTP e HTTPS. ) e `asyncio`(Permite requisições assíncronas.)
 - Pacotes R equivalentes: `httr` e `async`
