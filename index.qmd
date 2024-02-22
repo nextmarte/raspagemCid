@@ -8,7 +8,6 @@ logo: "https://lagoaviva.net/pluginfile.php/1/theme_mb2nl/logo/1707142444/logo-l
 toc: false
 bibliography: references.bib
 csl: apa.csl
-
 ---
 
 ## O que é web scraping?
@@ -21,12 +20,11 @@ csl: apa.csl
 
 ![](images/paste-2.png){fig-align="center" width="493"}
 
-## Requisitos para web scraping
+## Requisitos para raspar dados de um site (html parsing)
 
 Conhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar)
 
 Exemplo de trecho de código html que pode ser raspado:
-
 
 ``` html
 
@@ -38,10 +36,9 @@ Exemplo de trecho de código html que pode ser raspado:
 </div>
 ```
 
-
 Para coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag `h5` e o parágrafo dentro de uma tag `p`.
 
-Exemplo simples de codigo em Python para coletar esses dados e salvar em uma variável:
+Código em Python para coletar esses dados:
 
 ``` python
 from bs4 import BeautifulSoup
@@ -58,9 +55,9 @@ print(title)
 print(text)
 ```
 
-## Outros requisitos  
+## Outros requisitos
 
-Tags HTML: 
+Tags HTML:
 
 ``` html
 
@@ -85,14 +82,52 @@ Tags HTML:
     </div>
 </body>
 </html>
-
 ```
+
 ##### Atributos: São usados para fornecer informações adicionais sobre elementos HTML.
 
 ``` html
 
 class, id, src, href, etc.
-
 ```
+
+## Outros métodos de coleta de dados:
+
+DOM parsing (Document Object Model):
+
+<center>
+
+```{mermaid}
+graph TB
+    A[html]
+    B[head]
+    C[body]
+    D[h1]
+    E[p]
+    A --> B
+    A --> C
+    B -.-> C
+    C --> D
+    C --> E
+```
+
+</center>
+
+Interface (API) usada para organizar os diferentes tipos de elementos em um documento HTML ou XML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos [@lotfi2021]
+
+## Exemplo DOM parsing
+
+``` {python}
+from bs4 import BeautifulSoup4
+
+html = "https://www.geeksforgeeks.org/"
+
+soup = BeautifulSoup(html, 'html.parser')
+
+header = soup.find('div', id='header')
+
+print(header.text)
+```
+
 
 ## Referências

@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Marcus Ramalho e Ariel Levy">
-  <meta name="dcterms.date" content="2024-02-21">
+  <meta name="dcterms.date" content="2024-02-22">
   <title>Como Raspar? - Como Raspar dados CID Lagoa Viva</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -407,6 +407,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
@@ -424,7 +427,7 @@ Marcus Ramalho e Ariel Levy
 </div>
 </div>
 
-  <p class="date">2024-02-21</p>
+  <p class="date">2024-02-22</p>
 </section>
 <section id="o-que-é-web-scraping" class="slide level2">
 <h2>O que é web scraping?</h2>
@@ -444,8 +447,8 @@ Marcus Ramalho e Ariel Levy
 </figure>
 </div>
 </section>
-<section id="requisitos-para-web-scraping" class="slide level2">
-<h2>Requisitos para web scraping</h2>
+<section id="requisitos-para-raspar-dados-de-um-site-html-parsing" class="slide level2">
+<h2>Requisitos para raspar dados de um site (html parsing)</h2>
 <p>Conhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar)</p>
 <p>Exemplo de trecho de código html que pode ser raspado:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a></a></span>
@@ -456,7 +459,7 @@ Marcus Ramalho e Ariel Levy
 <span id="cb1-6"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-7"><a></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Para coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag <code>h5</code> e o parágrafo dentro de uma tag <code>p</code>.</p>
-<p>Exemplo simples de codigo em Python para coletar esses dados e salvar em uma variável:</p>
+<p>Código em Python para coletar esses dados:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a>html <span class="op">=</span> <span class="st">"html do card"</span></span>
@@ -498,6 +501,35 @@ Marcus Ramalho e Ariel Levy
 <h5 id="atributos-são-usados-para-fornecer-informações-adicionais-sobre-elementos-html.">Atributos: São usados para fornecer informações adicionais sobre elementos HTML.</h5>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a></a></span>
 <span id="cb4-2"><a></a>class, id, src, href, etc.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="outros-métodos-de-coleta-de-dados" class="slide level2">
+<h2>Outros métodos de coleta de dados:</h2>
+<p>DOM parsing (Document Object Model):</p>
+<center>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TB
+    A[html]
+    B[head]
+    C[body]
+    D[h1]
+    E[p]
+    A --&gt; B
+    A --&gt; C
+    B -.-&gt; C
+    C --&gt; D
+    C --&gt; E
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</center>
+<p>Interface usada para organizar os diferentes tipos de elementos em um documento HTML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos <span class="citation" data-cites="lotfi2021">(<a href="#/referências" role="doc-biblioref" onclick="">Lotfi et al., 2021</a>)</span></p>
 </section>
 <section id="referências" class="slide level2 smaller scrollable">
 <h2>Referências</h2>
