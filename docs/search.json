@@ -11,14 +11,14 @@
     "href": "index.html#o-que-é-web-scraping",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "O que é web scraping?",
-    "text": "O que é web scraping?\n\nFonte: (webharvy, 2024)"
+    "text": "O que é web scraping?\n\n\n\n\n\n\ngraph LR\n    A{Internet}\n    B(software/código)\n    C[database]\n    D[csv]\n    E[json]\n    F[xlsx]\n    G[xml]\n    A --&gt; B\n    B --&gt; C\n    B --&gt; D\n    B --&gt; E\n    B --&gt; F\n    B --&gt; G"
   },
   {
     "objectID": "index.html#referências",
     "href": "index.html#referências",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Referências",
-    "text": "Referências\n\n\n\n\n\n\n\n\n\nLotfi, C., Srinivasan, S., Ertz, M., & Latrous, I. (2021). Web scraping techniques and applications: A literature review (pp. 381–394). Soft Computing Research Society. https://doi.org/10.52458/978-93-91842-08-6-38\n\n\nwebharvy. (2024). What is Web Scraping?  Practical Uses & Methods. https://www.webharvy.com/articles/what-is-web-scraping.html."
+    "text": "Referências\n\n\n\n\n\n\n\n\n\nLotfi, C., Srinivasan, S., Ertz, M., & Latrous, I. (2021). Web scraping techniques and applications: A literature review (pp. 381–394). Soft Computing Research Society. https://doi.org/10.52458/978-93-91842-08-6-38"
   },
   {
     "objectID": "index.html#requisitos-para-web-scraping",
@@ -53,7 +53,7 @@
     "href": "index.html#requisitos-para-raspar-dados-de-um-site-html-parsing",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Requisitos para raspar dados de um site (html parsing)",
-    "text": "Requisitos para raspar dados de um site (html parsing)\nConhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar), tags e atributos.\n\n\nExemplo\n\n\n&lt;div class=\"card\"&gt;\n    &lt;div class=\"card-body\"&gt;\n        &lt;h5 class=\"card-title\"&gt;Lagoa Viva&lt;/h5&gt;\n        &lt;p class=\"card-text\"&gt;A Plataforma Educacional Lagoa Viva possui uma grande inovação para a população de Maricá: o sistema de avaliação e identificação de perfis comportamentais. Vamos entender como isso funciona?&lt;/p&gt;\n    &lt;/div&gt;\n&lt;/div&gt;\n\nPara coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag h5 e o parágrafo dentro de uma tag p.\n\n\nCódigo em Python para coletar esses dados:\n\nfrom bs4 import BeautifulSoup\n\nhtml = \"html do card\"\n\nsoup = BeautifulSoup(html, 'html.parser')\n\ntitle = soup.find('h5', class_='card-title').text\ntext = soup.find('p', class_='card-text\n\nprint(title)\n\nprint(text)"
+    "text": "Requisitos para raspar dados de um site (html parsing)\nConhecimento básico de HTML e CSS (para identificar os elementos que queremos coletar), tags e atributos.\n\n\nExemplo\n\n&lt;div class=\"card\"&gt;\n    &lt;div class=\"card-body\"&gt;\n        &lt;h5 class=\"card-title\"&gt;Lagoa Viva&lt;/h5&gt;\n        &lt;p class=\"card-text\"&gt;A Plataforma Educacional Lagoa Viva possui uma grande inovação para a população de Maricá: o sistema de avaliação e identificação de perfis comportamentais. Vamos entender como isso funciona?&lt;/p&gt;\n    &lt;/div&gt;\n&lt;/div&gt;\n\nPara coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag h5 e o parágrafo dentro de uma tag p.\n\n\nCódigo em R para coletar esses dados:\n\n\nlibrary(rvest)\nhtml &lt;- \"html do card\"\nwebpage &lt;- read_html(html)\ntitle &lt;- webpage %&gt;%\n    html_node(\"h5.card-title\") %&gt;%\n    html_text(trim = TRUE)\ntext &lt;- webpage %&gt;%\n    html_node(\"p.card-text\") %&gt;%\n    html_text(trim = TRUE)\nprint(title)\nprint(text)\n\n\n\n\nCódigo em Python para coletar esses dados:\n\nfrom bs4 import BeautifulSoup\nhtml = \"html do card\"\nsoup = BeautifulSoup(html, 'html.parser')\ntitle = soup.find('h5', class_='card-title').text\ntext = soup.find('p', class_='card-text').text\nprint(title)\nprint(text)"
   },
   {
     "objectID": "index.html#outros-métodos-de-coleta-de-dados",
@@ -95,7 +95,7 @@
     "href": "index.html#métodos-dom-parsing-document-object-model",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Métodos: DOM parsing (Document Object Model)",
-    "text": "Métodos: DOM parsing (Document Object Model)\n\n\n\n\n\n\ngraph TB\n    A{html}\n    B[head]\n    C[body]\n    D[h1]\n    E[p]\n    A --&gt; B\n    A --&gt; C\n    C --&gt; D\n    C --&gt; E\n\n\n\n\n\n\n\nInterface (API) usada para organizar os diferentes tipos de elementos em um documento HTML ou XML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos (Lotfi et al., 2021). Exemplo de site para visualizar arvores DOM: https://livedom.validator.nu/"
+    "text": "Métodos: DOM parsing (Document Object Model)\n\n\n\n\n\n\ngraph TB\n    A[HTML]\n    B[HEAD]\n    C[BODY]\n    D[DIV class='card']\n    E[Text]\n    F[DIV class='card-body']\n    G[Text]\n    H[H5 class='card-title']\n    I[Text: Lagoa Viva]\n    J[Text]\n    K[P class='card-text']\n    L[Text: A Plataforma ...]\n    M[Text]\n    N[Text]\n    A --&gt; B\n    A --&gt; C\n    C --&gt; D\n    D --&gt; E\n    D --&gt; F\n    F --&gt; G\n    F --&gt; H\n    H --&gt; I\n    F --&gt; J\n    F --&gt; K\n    K --&gt; L\n    K --&gt; M\n    K --&gt; N\n\n\n\n\n\n\n\nOrganiza o documento em uma estrutura de árvore - DOM: https://livedom.validator.nu/"
   },
   {
     "objectID": "index.html#métodos-regular-expression-regex-vs-llms-language-models",
@@ -124,5 +124,12 @@
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Aplicações de web scraping com Python e R",
     "text": "Aplicações de web scraping com Python e R"
+  },
+  {
+    "objectID": "index.html#apis",
+    "href": "index.html#apis",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "API`s",
+    "text": "API`s\n\nSegurança e confiabilidade\nFacilidade de uso\nDocumentação\nLimites de requisições\nAutenticação\nPacotes Python: requests(Faz requisições HTTP e HTTPS. ) e asyncio(Permite requisições assíncronas.)\nPacotes R equivalentes: httr e async"
   }
 ]

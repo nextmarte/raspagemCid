@@ -431,8 +431,37 @@ Marcus Ramalho e Ariel Levy
 </section>
 <section id="o-que-é-web-scraping" class="slide level2">
 <h2>O que é web scraping?</h2>
+<center>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    A{Internet}
+    B(software/código)
+    C[database]
+    D[csv]
+    E[json]
+    F[xlsx]
+    G[xml]
+    A --&gt; B
+    B --&gt; C
+    B --&gt; D
+    B --&gt; E
+    B --&gt; F
+    B --&gt; G
 
-<img data-src="images/paste-3.png" class="quarto-figure quarto-figure-center r-stretch"><p class="caption">Fonte: <span class="citation" data-cites="webharvyWhatWebScraping">(<a href="#/referências" role="doc-biblioref" onclick="">webharvy, 2024</a>)</span></p></section>
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</center>
+<!-- 
+![Fonte: [@webharvyWhatWebScraping]](images/paste-3.png){fig-align="center"} -->
+</section>
 <section id="design-básico-de-um-web-scraper" class="slide level2">
 <h2>Design básico de um web scraper</h2>
 <div class="quarto-figure quarto-figure-center">
@@ -454,31 +483,43 @@ Marcus Ramalho e Ariel Levy
 <summary>
 Exemplo
 </summary>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a></a></span>
-<span id="cb1-2"><a></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card"</span><span class="dt">&gt;</span></span>
-<span id="cb1-3"><a></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-body"</span><span class="dt">&gt;</span></span>
-<span id="cb1-4"><a></a>        <span class="dt">&lt;</span><span class="kw">h5</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-title"</span><span class="dt">&gt;</span>Lagoa Viva<span class="dt">&lt;/</span><span class="kw">h5</span><span class="dt">&gt;</span></span>
-<span id="cb1-5"><a></a>        <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-text"</span><span class="dt">&gt;</span>A Plataforma Educacional Lagoa Viva possui uma grande inovação para a população de Maricá: o sistema de avaliação e identificação de perfis comportamentais. Vamos entender como isso funciona?<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-6"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-7"><a></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card"</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-body"</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a></a>        <span class="dt">&lt;</span><span class="kw">h5</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-title"</span><span class="dt">&gt;</span>Lagoa Viva<span class="dt">&lt;/</span><span class="kw">h5</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a></a>        <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"card-text"</span><span class="dt">&gt;</span>A Plataforma Educacional Lagoa Viva possui uma grande inovação para a população de Maricá: o sistema de avaliação e identificação de perfis comportamentais. Vamos entender como isso funciona?<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <p>Para coletar o texto do título e do parágrafo do card precisamos identificar os elementos que contém esses textos. No caso, o título está dentro de uma tag <code>h5</code> e o parágrafo dentro de uma tag <code>p</code>.</p>
 <details>
 <summary>
+Código em R para coletar esses dados:
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1|2|3|4|5|6|7|8|9|10|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(rvest)</span>
+<span id="cb2-2"><a></a>html <span class="ot">&lt;-</span> <span class="st">"html do card"</span></span>
+<span id="cb2-3"><a></a>webpage <span class="ot">&lt;-</span> <span class="fu">read_html</span>(html)</span>
+<span id="cb2-4"><a></a>title <span class="ot">&lt;-</span> webpage <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a></a>    <span class="fu">html_node</span>(<span class="st">"h5.card-title"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a></a>    <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-7"><a></a>text <span class="ot">&lt;-</span> webpage <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a></a>    <span class="fu">html_node</span>(<span class="st">"p.card-text"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a></a>    <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-10"><a></a><span class="fu">print</span>(title)</span>
+<span id="cb2-11"><a></a><span class="fu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<details>
+<summary>
 Código em Python para coletar esses dados:
 </summary>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a>html <span class="op">=</span> <span class="st">"html do card"</span></span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a>soup <span class="op">=</span> BeautifulSoup(html, <span class="st">'html.parser'</span>)</span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a>title <span class="op">=</span> soup.find(<span class="st">'h5'</span>, class_<span class="op">=</span><span class="st">'card-title'</span>).text</span>
-<span id="cb2-8"><a></a>text <span class="op">=</span> soup.find(<span class="st">'p'</span>, class_<span class="op">=</span><span class="st">'card-text</span></span>
-<span id="cb2-9"><a></a></span>
-<span id="cb2-10"><a></a><span class="er">print</span>(title)</span>
-<span id="cb2-11"><a></a></span>
-<span id="cb2-12"><a></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3" data-code-line-numbers="1|2|3|4|5|6|7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb3-2"><a></a>html <span class="op">=</span> <span class="st">"html do card"</span></span>
+<span id="cb3-3"><a></a>soup <span class="op">=</span> BeautifulSoup(html, <span class="st">'html.parser'</span>)</span>
+<span id="cb3-4"><a></a>title <span class="op">=</span> soup.find(<span class="st">'h5'</span>, class_<span class="op">=</span><span class="st">'card-title'</span>).text</span>
+<span id="cb3-5"><a></a>text <span class="op">=</span> soup.find(<span class="st">'p'</span>, class_<span class="op">=</span><span class="st">'card-text'</span>).text</span>
+<span id="cb3-6"><a></a><span class="bu">print</span>(title)</span>
+<span id="cb3-7"><a></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </section>
 <section id="métodos-dom-parsing-document-object-model" class="slide level2">
@@ -490,15 +531,33 @@ Código em Python para coletar esses dados:
 <p></p><figure class=""><p></p>
 <div>
 <pre class="mermaid mermaid-js">graph TB
-    A{html}
-    B[head]
-    C[body]
-    D[h1]
-    E[p]
+    A[HTML]
+    B[HEAD]
+    C[BODY]
+    D[DIV class='card']
+    E[Text]
+    F[DIV class='card-body']
+    G[Text]
+    H[H5 class='card-title']
+    I[Text: Lagoa Viva]
+    J[Text]
+    K[P class='card-text']
+    L[Text: A Plataforma ...]
+    M[Text]
+    N[Text]
     A --&gt; B
     A --&gt; C
     C --&gt; D
-    C --&gt; E
+    D --&gt; E
+    D --&gt; F
+    F --&gt; G
+    F --&gt; H
+    H --&gt; I
+    F --&gt; J
+    F --&gt; K
+    K --&gt; L
+    K --&gt; M
+    K --&gt; N
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -506,7 +565,7 @@ Código em Python para coletar esses dados:
 </div>
 </div>
 </center>
-<p>Interface (API) usada para organizar os diferentes tipos de elementos em um documento HTML ou XML em uma estrutura de árvore, facilitando a navegação e manipulação dos elementos <span class="citation" data-cites="lotfi2021">(<a href="#/referências" role="doc-biblioref" onclick="">Lotfi et al., 2021</a>)</span>. Exemplo de site para visualizar arvores DOM: <a href="https://livedom.validator.nu/" class="uri">https://livedom.validator.nu/</a></p>
+<p>Organiza o documento em uma estrutura de árvore - DOM: <a href="https://livedom.validator.nu/" class="uri">https://livedom.validator.nu/</a></p>
 </section>
 <section id="métodos-regular-expression-regex-e-llms-large-language-models" class="slide level2">
 <h2>Métodos: Regular Expression (Regex) e LLM’s (Large Language Models)</h2>
@@ -525,6 +584,18 @@ Código em Python para coletar esses dados:
 <li class="fragment">Computer Vision Web Page Analyzer</li>
 </ul>
 </section>
+<section id="apis" class="slide level2">
+<h2>API`s</h2>
+<ul>
+<li class="fragment">Segurança e confiabilidade</li>
+<li class="fragment">Facilidade de uso</li>
+<li class="fragment">Documentação</li>
+<li class="fragment">Limites de requisições</li>
+<li class="fragment">Autenticação</li>
+<li class="fragment">Pacotes Python: <code>requests</code>(Faz requisições HTTP e HTTPS. ) e <code>asyncio</code>(Permite requisições assíncronas.)</li>
+<li class="fragment">Pacotes R equivalentes: <code>httr</code> e <code>async</code></li>
+</ul>
+</section>
 <section id="aplicações-de-web-scraping-com-python-e-r" class="slide level2">
 <h2>Aplicações de web scraping com Python e R</h2>
 </section>
@@ -540,9 +611,6 @@ Código em Python para coletar esses dados:
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-lotfi2021" class="csl-entry" role="listitem">
 Lotfi, C., Srinivasan, S., Ertz, M., &amp; Latrous, I. (2021). <em>Web scraping techniques and applications: A literature review</em> (pp. 381–394). Soft Computing Research Society. <a href="https://doi.org/10.52458/978-93-91842-08-6-38">https://doi.org/10.52458/978-93-91842-08-6-38</a>
-</div>
-<div id="ref-webharvyWhatWebScraping" class="csl-entry" role="listitem">
-webharvy. (2024). <em>What is <span>Web Scraping</span>? <span></span> <span>Practical Uses</span> &amp; <span>Methods</span></em>. https://www.webharvy.com/articles/what-is-web-scraping.html.
 </div>
 </div>
 </section>
@@ -756,6 +824,44 @@ webharvy. (2024). <em>What is <span>Web Scraping</span>? <span></span> <span>Pra
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
