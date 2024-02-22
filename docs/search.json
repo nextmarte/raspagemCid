@@ -102,6 +102,13 @@
     "href": "index.html#métodos-regular-expression-regex-vs-llms-language-models",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Métodos: Regular Expression (Regex) vs LLM’s (Language Models)",
-    "text": "Métodos: Regular Expression (Regex) vs LLM’s (Language Models)\nRegular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo: regex: r'\\d+' encontra todas as sequências de números em uma string.\n\nModelos de linguagem que aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc… Uma aplicação de LLM’s é a extração de informações de textos, como entidades nomeadas, relações, etc,"
+    "text": "Métodos: Regular Expression (Regex) vs LLM’s (Language Models)\nRegular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo: regex: r'\\d+' encontra todas as sequências de números em uma string.\n\n\n\nModelos de linguagem que aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc… Uma aplicação de LLM’s é a extração de informações de textos, como entidades nomeadas, relações, etc,"
+  },
+  {
+    "objectID": "index.html#outros-métodos",
+    "href": "index.html#outros-métodos",
+    "title": "Como Raspar dados CID Lagoa Viva",
+    "section": "Outros métodos",
+    "text": "Outros métodos\n\nXPath (XML Path Language)\nVertical Aggregation Platforms (VAP)"
   }
 ]

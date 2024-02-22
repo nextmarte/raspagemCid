@@ -80,8 +80,11 @@ Interface (API) usada para organizar os diferentes tipos de elementos em um docu
 
 Regular expressions são padrões utilizados para encontrar determinadas combinações de caracteres dentro de strings. Exemplo: regex: `r'\d+'` encontra todas as sequências de números em uma string.
 
+<center>
+
 ![](images/paste-6.png)
 
+</center>
 Modelos de linguagem que aprendem a estrutura e padrões de uma língua natural. Exemplo: Gemini, GPT-4, etc... Uma aplicação de LLM's é a extração de informações de textos, como entidades nomeadas, relações, etc,
 
 ## Outros métodos
