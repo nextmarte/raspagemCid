@@ -166,16 +166,15 @@ Modelos de linguagem aprendem a estrutura e padrões de uma língua natural. Exe
 
 ## Outros métodos
 
-- XPath (XML Path Language)
-- Vertical Aggregation Platforms (VAP)
-- Semantic annotation recognizing
-- Computer Vision Web Page Analyzer
+- XPath (XML Path Language) - Query language para selecionar nós de um documento XML
+- Semantic annotation recognizing (SAR) - Identifica entidades nomeadas em textos (ML)
+- Computer Vision Web Page Analyzer - Identifica elementos de uma página web a partir de uma imagem (ML)
+- Serviços de terceiros: ParseHub, Octoparse, WebScraper, etc...
 
 ## API`s
 
-- Segurança e confiabilidade
-- Facilidade de uso
 - Documentação
+- Segurança e confiabilidade
 - Limites de requisições e preços
 - Autenticação
 - Pacotes Python: `requests`(Faz requisições HTTP e HTTPS. ) e `asyncio`(Permite requisições assíncronas.)

@@ -109,7 +109,7 @@
     "href": "index.html#outros-métodos",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Outros métodos",
-    "text": "Outros métodos\n\nXPath (XML Path Language)\nVertical Aggregation Platforms (VAP)\nSemantic annotation recognizing\nComputer Vision Web Page Analyzer"
+    "text": "Outros métodos\n\nXPath (XML Path Language) - Query language para selecionar nós de um documento XML\nVertical Aggregation Platforms (VAP)\nSemantic annotation recognizing\nComputer Vision Web Page Analyzer"
   },
   {
     "objectID": "index.html#métodos-regular-expression-regex-e-llms-large-language-models",

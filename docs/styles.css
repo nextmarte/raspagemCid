@@ -24,3 +24,7 @@ p,
     max-width: 15% !important;
     max-height: 7% !important;
 }
+
+.fragment.visible {
+    font-size: 26px;
+}
