@@ -8,7 +8,7 @@ logo: "https://lagoaviva.net/pluginfile.php/1/theme_mb2nl/logo/1707142444/logo-l
 toc: false
 bibliography: references.bib
 csl: apa.csl
-incremental: true
+incremental: false
 ---
 
 ## O que é web scraping?

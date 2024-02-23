@@ -109,7 +109,7 @@
     "href": "index.html#outros-métodos",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "Outros métodos",
-    "text": "Outros métodos\n\nXPath (XML Path Language) - Query language para selecionar nós de um documento XML\nVertical Aggregation Platforms (VAP)\nSemantic annotation recognizing\nComputer Vision Web Page Analyzer"
+    "text": "Outros métodos\n\nXPath (XML Path Language) - Query language para selecionar nós de um documento XML\nSemantic annotation recognizing (SAR) - Identifica entidades nomeadas em textos (ML)\nComputer Vision Web Page Analyzer - Identifica elementos de uma página web a partir de uma imagem (ML)\nServiços de terceiros: ParseHub, Octoparse, WebScraper, etc…"
   },
   {
     "objectID": "index.html#métodos-regular-expression-regex-e-llms-large-language-models",
@@ -130,7 +130,7 @@
     "href": "index.html#apis",
     "title": "Como Raspar dados CID Lagoa Viva",
     "section": "API`s",
-    "text": "API`s\n\nSegurança e confiabilidade\nFacilidade de uso\nDocumentação\nLimites de requisições e preços\nAutenticação\nPacotes Python: requests(Faz requisições HTTP e HTTPS. ) e asyncio(Permite requisições assíncronas.)\nPacotes R equivalentes: httr e async"
+    "text": "API`s\n\nDocumentação\nSegurança e confiabilidade\nLimites de requisições e preços\nAutenticação\nPacotes Python: requests(Faz requisições HTTP e HTTPS. ) e asyncio(Permite requisições assíncronas.)\nPacotes R equivalentes: httr e async"
   },
   {
     "objectID": "index.html#web-crawling",
